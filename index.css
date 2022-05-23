@@ -1,0 +1,93 @@
+/* navbar css */
+
+#navbar {
+    display: flex;
+    height: 70px;
+    width: 100%;
+    border: 1px solid rgb(218, 213, 213);
+    justify-content: space-evenly;
+}
+
+#total {
+    font-size: 20px;
+    width: 120px;
+    margin-top: 10px;
+}
+
+span {
+    height: 69px;
+    border: 1px solid rgb(218, 213, 213);
+}
+
+.batchNo {
+    height: 90%;
+    width: 18%;
+    /* border: 1px solid; */
+    text-align: center;
+    font-size: 20px;
+}
+
+.batchNoa {
+    height: 55%;
+    width: 100%;
+    /* border: 1px solid; */
+    text-align: center;
+    font-size: 22px;
+    margin: 8px;
+    color: gray;
+}
+
+/* a tag css */
+
+#details {
+    margin: 20px;
+    font-size: 25px;
+    height: auto;
+    width: 240px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgb(181, 232, 252);
+    /* background-color: rgb(241 241 241) */
+}
+
+a {
+    text-decoration: none;
+    color: rgb(82, 64, 64);
+}
+
+
+/* form css */
+
+#form_body {
+    margin: auto;
+    margin-top: 20px;
+    /* border: 1px solid; */
+    height: 320px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border: 1px solid #efe6e6;
+    ;
+}
+
+#form_body input,
+select {
+    padding: 6px 15px;
+    font-size: 15px;
+    margin: 4px;
+    outline: none;
+}
+
+select {
+    padding: 5px 30px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+#form_body div {
+    text-align: center;
+    margin: 10px;
+    padding: auto;
+}

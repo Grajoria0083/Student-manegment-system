@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar {
+            display: flex;
+            height: 70px;
+            width: 100%;
+            border: 1px solid rgb(218, 213, 213);
+            justify-content: space-evenly;
+        }
+
+        #total {
+            font-size: 20px;
+            width: 120px;
+            margin-top: 10px;
+        }
+
+        span {
+            height: 69px;
+            border: 1px solid rgb(218, 213, 213);
+        }
+
+        .batchNo {
+            height: 90%;
+            width: 18%;
+            /* border: 1px solid; */
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .batchNoa {
+            height: 55%;
+            width: 100%;
+            /* border: 1px solid; */
+            text-align: center;
+            font-size: 22px;
+            margin: 8px;
+            color: gray;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        #container div {
+            height: 400px;
+            width: 300px;
+            /* border: 1px solid; */
+            margin: auto;
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        div img {
+            width: 100%;
+            height: 50%;
+        }
+
+        p {
+            font-size: 18px;
+            margin-left: 15px;
+        }
+
+        button {
+            padding: 3px 11px;
+            margin-left: 210px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="total">Total Students Batch Wise : </div>
+        <span></span>
+        <div id="web_15" class="batchNo">fd-web-15<div class="batchNoa" id="web_15a">0</div>
+        </div>
+        <div id="web_16" class="batchNo">fd-web-16<div class="batchNoa" id="web_16a">0</div>
+        </div>
+        <div id="web_17" class="batchNo">fd-web-17<div class="batchNoa" id="web_17a">0</div>
+        </div>
+        <div id="web_18" class="batchNo">fd-web-18<div class="batchNoa" id="web_18a">0</div>
+        </div>
+        <div id="web_19" class="batchNo">fd-web-19<div class="batchNoa" id="web_19a">0</div>
+        </div>
+    </div>
+
+
+    <div id="container"></div>
+
+</body>
+
+</html>
+<script>
+
+    // function read(id) {
+    //     return document.createElement(id)
+    // }
+
+    var getData = JSON.parse(localStorage.getItem("student"))
+
+    getData.map(function (el, index) {
+        var box = document.createElement("div")
+
+        var dname = document.createElement("p")
+        dname.innerText = `Name : ${el.name}`;
+
+        var dcourse = document.createElement("p")
+        dcourse.innerText = `Course : ${el.course}`;
+
+        var dunit = document.createElement("p")
+        dunit.innerText = `Unit : ${el.unit}`;
+
+        var dimage = document.createElement("img")
+        dimage.src = el.image;
+
+        var dbatch = document.createElement("p")
+        dbatch.innerText = `Batch : ${el.batch}`;
+        dbatch.style.display = "inline"
+
+        var btn = document.createElement("button")
+        btn.innerText = "remove";
+        btn.addEventListener("click", function () {
+            remove(el, index)
+        })
+
+        box.append(dimage, dname, dcourse, dunit, dbatch, btn)
+        document.getElementById("container").append(box)
+    })
+
+
+
+    var arrTrack = JSON.parse(localStorage.getItem("track")) || [];
+
+    function remove(el, index) {
+
+        let x = getData.splice(index, 1)
+
+        arrTrack.push(x)
+        localStorage.setItem("track", JSON.stringify(arrTrack))
+        localStorage.setItem("student", JSON.stringify(getData))
+        window.location.reload()
+    }
+
+
+
+
+
+    function calculate() {
+        var batchData = JSON.parse(localStorage.getItem("student")) || [];
+        var obj = {};
+        for (var i = 0; i < batchData.length; i++) {
+            if (obj[batchData[i].batch] == undefined) {
+                obj[batchData[i].batch] = 1;
+            }
+            else {
+                obj[batchData[i].batch]++;
+            }
+        }
+
+        console.log(obj)
+        for (var key in obj) {
+            if (key == 15) {
+                var fw15 = read("web_15a")
+                fw15.innerText = obj[key]
+            }
+            else if (key == 16) {
+                var fw16 = read("web_16a")
+                fw16.innerText = obj[key]
+            }
+            else if (key == 17) {
+                var fw17 = read("web_17a")
+                fw17.innerText = obj[key]
+            }
+            else if (key == 18) {
+                var fw18 = read("web_18a")
+                fw18.innerText = obj[key]
+            }
+            else if (key == 19) {
+                var fw19 = read("web_19a")
+                fw19.innerText = obj[key]
+            }
+            else
+                continue;
+        }
+    }
+
+    calculate()
+
+    function read(id) {
+        return document.getElementById(id)
+    }
+</script>

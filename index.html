@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student Manegment System</title>
+    <link rel="stylesheet" href="index.css">
+    </link>
+</head>
+
+<body>
+    <div id="navbar">
+        <div id="total">Total Students Batch Wise : </div>
+        <span></span>
+        <div id="web_15" class="batchNo">fd-web-15<div class="batchNoa" id="web_15a">0</div>
+        </div>
+        <div id="web_16" class="batchNo">fd-web-16<div class="batchNoa" id="web_16a">0</div>
+        </div>
+        <div id="web_17" class="batchNo">fd-web-17<div class="batchNoa" id="web_17a">0</div>
+        </div>
+        <div id="web_18" class="batchNo">fd-web-18<div class="batchNoa" id="web_18a">0</div>
+        </div>
+        <div id="web_19" class="batchNo">fd-web-19<div class="batchNoa" id="web_19a">0</div>
+        </div>
+    </div>
+
+
+    <div id="details"><a href="detail.html">Check Student Details</a></div>
+
+
+    <div id="form_body">
+        <form id="form" onsubmit="submitData(event)">
+            <div><input id="name" type="text" placeholder="Enter Name"><br></div>
+            <div><input id="unit" type="text" placeholder="Enter Unit"></div>
+            <div><input id="image" type="text" placeholder="Enter Image-url"></div>
+            <div><input id="course" type="text" placeholder="Enter Course"></div>
+            <!-- <div><select id="course">
+                    <option>select-course</option>
+                    <option>DSA-courses</option>
+                    <option>dsa-101</option>
+                    <option>dsa-111</option>
+                    <option>dsa-201</option>
+                    <option>dsa-211</option>
+                    <option>dsa-301</option>
+                    <option>dsa-311</option>
+                    <option>dsa-401</option>
+                    <option>dsa-411</option>
+                    <option>Coding-courses</option>
+                    <option>js-101</option>
+                    <option>js-201</option>
+                    <option>Rct-301</option>
+                    <option>Rct-401</option>
+                    <option>Java-111</option>
+                    <option>Java-211</option>
+                </select>
+            </div> -->
+
+
+            <div><select id="batch">
+                    <option>select-batch</option>
+                    <option value="15">fd-web-15</option>
+                    <option value="16">fd-web-16</option>
+                    <option value="17">fd-web-17</option>
+                    <option value="18">fd-web-18</option>
+                    <option value="19">fd-web-19</option>
+                </select></div>
+            <!-- <input  type="text" placeholder="enter batch"> -->
+            <div><input id="add" type="submit"></div>
+            <!-- <input id="name" type="text" placeholder="enter name"> -->
+        </form>
+    </div>
+
+
+
+</body>
+
+</html>
+<script src="index.js"></script>
